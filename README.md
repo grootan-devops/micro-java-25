@@ -7,10 +7,9 @@ Dockerfile.
 ## Image
 
 - Registry: Docker Hub
-- Repository: `grootantec/micro-java-25`
-- Release: `1.0.0`
-- Temurin: `25.0.3+9`
-- Base: `grootantec/micro-root:1.5.1`
+- Repository: `grootantech/micro-java-25`
+- Temurin: `25`
+- Base: `grootantech/micro-root`
 
 The image uses `/usr/bin/dumb-init --` as its entrypoint and starts `java` by
 default. `JAVA_HOME` is `/usr/local/java/current`; `java` and `keytool` are

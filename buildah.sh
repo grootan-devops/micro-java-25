@@ -2,7 +2,6 @@
 
 set -euo pipefail
 
-: "${CONTAINER_MOUNT:?CONTAINER_MOUNT must be set by the Buildah workflow}"
 JAVA_MAJOR="25"
 # renovate: datasource=github-releases depName=adoptium/temurin25-binaries extractVersion=^jdk-(?<version>.+)$
 JAVA_VERSION="25.0.3+9"
@@ -17,8 +16,7 @@ JRE_FILE="OpenJDK${JAVA_MAJOR}U-jre_x64_linux_hotspot_${JAVA_FEATURE_VERSION}_${
 JRE_URL="https://github.com/adoptium/temurin${JAVA_MAJOR}-binaries/releases/download/jdk-${JAVA_VERSION}/${JRE_FILE}"
 
 mkdir -p "${CONTAINER_MOUNT}${JAVA_HOME}"
-curl --fail --show-error --location --proto '=https' --tlsv1.2 --retry 3 \
-  --output jre.tar.gz "${JRE_URL}"
+curl --fail --show-error --location --proto '=https' --tlsv1.2 --retry 3 --output jre.tar.gz "${JRE_URL}"
 tar -zxf jre.tar.gz -C "${CONTAINER_MOUNT}${JAVA_HOME}" --strip-components=1
 rm -f jre.tar.gz
 
