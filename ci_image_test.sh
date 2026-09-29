@@ -13,4 +13,5 @@ fail() {
 test -x "${JAVA_HOME}/bin/java" || fail "Java binary is missing"
 java --version 2>&1 | grep -q '25\.0\.3' || fail "unexpected Java version"
 keytool -help >/dev/null 2>&1 || fail "keytool is unavailable"
+test -e /usr/lib64/libstdc++.so.6 || fail "libstdc++.so.6 is missing"
 java -XshowSettings:properties -version 2>&1 | grep -q 'java.home = /usr/local/java/current' || fail "unexpected java.home"
