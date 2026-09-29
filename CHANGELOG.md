@@ -7,6 +7,13 @@ and this project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-09-30
+
+### Added
+
+- `libstdc++` so JNI libraries built against the C++ runtime (for example RocksDB, used by
+  ThingsBoard) load in the image.
+
 ## [1.1.1] - 2026-09-23
 
 ### Changed
